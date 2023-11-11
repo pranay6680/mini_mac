@@ -1,0 +1,100 @@
+.navbar{
+    padding-top : 30px;
+}
+.navitems {
+    background-color: grey;
+    color:white;
+    max-width :90%;
+    display: flex;
+    margin : auto; 
+}
+.navitems ul{
+    list-style: none;
+    width: 85%;
+    background-color: black;
+    margin : 10px auto;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    padding : 10px;
+    flex-wrap:wrap;
+}
+.navitems ul button{
+    background-color: blanchedalmond;
+    color: black;
+    padding : 15px;
+    border-radius: 10px;
+    cursor: pointer; 
+    font-size: large;
+    
+}
+/* ///////////////////////// */
+.parentCont{
+    background-color: aquamarine;
+    max-width: 90%;
+    margin : 0 auto;
+    
+}
+.childCont {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap : wrap; 
+    padding:20px;
+    text-align: center;
+    
+}
+.btn1{
+    padding : 10px;
+    font-size: 15px;
+    background-color: skyblue;
+    cursor: pointer;
+}
+.childCont li{
+    list-style: none;
+    background-color: grey;
+    padding:20px;
+
+}
+.img1{
+    display: flex;
+    padding-right: 11px;
+   
+}
+.img1:hover {
+    background-color: maroon;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.updater{
+    margin:10px;
+    font-size: 20px;
+}
+
+.bgimg img{
+    width : 90%;
+    height: 90vh;
+    margin: 0 5% 0 4.5%; 
+    position: absolute;  
+    z-index : -4;
+   
+}
+/* /////////////////////ordered.js///////////////// */
+.insideParent{
+    background-color: lightblue;
+    width : 90%;
+}
+.childlist li{
+    background-color: lightpink;
+    list-style: none;
+    max-width:20%;
+    margin: 10px 0 10px 0;
+    padding: 20px;   
+}
+.childlist{
+    max-width : 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    z-index : 22;
+}
