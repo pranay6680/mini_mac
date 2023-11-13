@@ -5,6 +5,7 @@ import "./StylesNavbar.css";
 import img1 from "./cart.png";
 import bgimg from "./LOGOSAM.png"
 import InsideCart from "./Ordered.js";
+import Reducer from "./reducer.js";
 function App() {
 ////////////////////////////////////////////////////////////////////////
   const [menuVisible , menuHidden] = useState(false);
@@ -22,9 +23,10 @@ const OrderedVisibility = () => {
   const PranItems = (foodinCart) =>{
     setPran([...pran , foodinCart])
   }
-  console.log(pran)
+ 
 //////////////////////////////////////////////////////////////////////////////}
 
+////////////////////////////////////////////////////////////////////////////
   const listNav = (
     <>
       <div className="navbar">
@@ -53,9 +55,13 @@ const OrderedVisibility = () => {
         <div style={{display : menuVisible ? 'block' : "none" }}>
           <Poper getter = {PranItems}/>
         </div>
+        
         <div style = {{display : OrderedMenu ? "block" : "none"}}>
-          <InsideCart insideItems={pran}/>
+          
+          <InsideCart inside = {pran}/>
+         
         </div>
+       
 {/* //////////////////////////////////////////////////////////////////////////////////  */}
       </div>
     </>
