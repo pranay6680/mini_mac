@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState , useRef  } from "react";
 import Poper from "./PopupMenu.js";
 import "./App.css";
 import "./StylesNavbar.css";
 import img1 from "./cart.png";
 import bgimg from "./LOGOSAM.png"
 import InsideCart from "./Ordered.js";
-import Reducer from "./reducer.js";
+import Usered from "./Usereducer.js";
+
 function App() {
 ////////////////////////////////////////////////////////////////////////
   const [menuVisible , menuHidden] = useState(false);
@@ -13,18 +14,35 @@ function App() {
       menuHidden(!menuVisible)
   }
 ///////////////////////////////////////////////////////////////////////
+
 const [OrderedMenu , setOrderedMenu] = useState(false);
 const OrderedVisibility = () => {
   setOrderedMenu(!OrderedMenu)
 }
 ///////////////////////////////////////////////////////////////////////
   // { the below one used as commener to pass data between three components
+
   const[pran , setPran] = useState([]);
+  
   const PranItems = (foodinCart) =>{
-    setPran([...pran , foodinCart])
+    setPran([...pran , foodinCart]);
+  console.log(pran)
+ 
   }
+  
+ 
+    
+ 
  
 //////////////////////////////////////////////////////////////////////////////}
+// let Updater = {
+//   quantity : 0
+// }
+// const [newCart, setNewCart] = useReducer(itemReducer, Updater);
+// const increase = () => {
+//   setNewCart({type : "INC" })
+// }
+
 
 ////////////////////////////////////////////////////////////////////////////
   const listNav = (
@@ -42,7 +60,8 @@ const OrderedVisibility = () => {
               <button type="submit">MENU</button>
             </div>
             <div className="img1" onClick={OrderedVisibility}>
-              <div className="updater" >{0}</div>
+              <div className="updater">{0}</div>
+             
               <img src={img1} alt="cartimage"  ></img>
             </div>
           </ul>
@@ -56,11 +75,12 @@ const OrderedVisibility = () => {
           <Poper getter = {PranItems}/>
         </div>
         
-        <div style = {{display : OrderedMenu ? "block" : "none"}}>
+        <div  style = {{display : OrderedMenu ? "block" : "none"}} >
           
-          <InsideCart inside = {pran}/>
+        {OrderedMenu && <Usered inside = {pran}/>}
          
         </div>
+     
        
 {/* //////////////////////////////////////////////////////////////////////////////////  */}
       </div>

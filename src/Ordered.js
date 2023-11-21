@@ -1,30 +1,43 @@
-
-
+import { useReducer , useState , useEffect} from "react";
 import Reducer from "./reducer";
+import React from "react"
+import addtoCart from "./Actions";
+import itemReducer from "./reducer";
+import Usered from "./Usereducer";
+
+// creating to check weather pasing from other function can give updated state immediatly.
 
 
-function InsideCart({inside}){
-    
+function InsideCart({updateState, setState}) {
+
+const [tone , settone] = useState(updateState);
+
+
+
+  return (
+    <>
+    <div className="insideParent">
+      <ul className="childlist">
+        {tone.map((insfood, index) => (
+         
+          <li className="listedelements" key={index}>
+           
+            <h3>Name:{insfood.name}</h3>
+            <h3>Price:{insfood.price}</h3>
+            <div>
+              <button type="submit" onClick={() => addtoCart(insfood)}>
+                Remove
+              </button>
+            </div>
+          </li>
+        ))}
+     
+      </ul>
+    </div>
    
-   return(
-        <div className="insideParent">
-            <ul className="childlist">
-            {inside.map((insfood , index) => (
-                
-                <li className="listedelements" key={index}>
-                    <h3>Name:{insfood.name}</h3>
-                    <h3>Price:{insfood.price}</h3>
-                    <div>
-                        
-                        <button type="submit">Remove</button>
-                    </div>
-                </li>
-              
-            ))}
-            </ul>
-        </div>
-   )
-    
+   </>
+  );
 }
+
+
 export default InsideCart;
- 

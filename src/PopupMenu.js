@@ -1,7 +1,8 @@
 import {useState} from "react";
 import React from "react";
 import "./StylesNavbar.css";
-
+import { useReducer } from "react";
+import {itemReducer} from "./Ordered"
 function Poper({getter}){
     const [ArrayItems,setArray] = useState([{id:1,name:"food",price:25,location :"uk"},
                     {id:2,name:"food",price:25,location :"uk"},
@@ -10,7 +11,7 @@ function Poper({getter}){
                     {id:5,name:"food",price:25,location :"uk"},
                     {id:6,name:"food",price:25,location :"uk"}
                 ]);
-
+             
 
     return (
 
@@ -23,12 +24,13 @@ function Poper({getter}){
                     <h3>Name:{items.name}</h3>
                     <h3>Price :{items.price}</h3>
                     <h3>Location :{items.location}</h3>
-                    <button type="submit" className="btn1" onClick={()=> getter({id:items.id,name:items.name, price:items.price})}>Add Item</button>
+                    <button type="submit" className="btn1" onClick={()=> getter(items)}>Add Item</button>
                </li>
              ))}
                 
             
             </ul>
+            
             </>
         </div>
         </>

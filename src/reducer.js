@@ -1,36 +1,21 @@
-import {useReducer} from "react";
-import InsideCart from "./Ordered";
+import react from "react";
 
-const itemReducer = (newCart, action) => {
-    
-    switch (action.type) {
-      case "DEL":
+ const itemReducer = (state , action) => {
+   switch(action.type){
+    case "ADD" :
+        return   [...state ,action.payload]
+
+    case "DEL" :
         return {
-          ...newCart,
-          insideItems: newCart.insideItems.filter(
-            (its) => its.id !== action.payload
-          ),
-        };
+            ...state,
+             inside : state.inside.filter((item) => item !== action.payload)
+        }
+        case "INC" :
+            return {
 
-      default:
-        return newCart;
-    }
-  };
-
-
-
-function Reducer({initial}) {
-    console.log(initial)
-    const [newCart , setNewCart] = useReducer(itemReducer , {insideItems :initial})
-   const disp = (id) => {
-    setNewCart({type: "DEL" , payload : id})
+            }
+        default :
+        return state;
    }
-  return <>
-      <InsideCart inside={newCart.insideItems} />
-       
-  </>;
 }
-export default  Reducer;
-
-// {i have used useReducer to remove the item on selected but i dont know its not working as expected rest all of the code is ok 
-// if you try agian check the props is not passing as expected why?}
+export default itemReducer;
