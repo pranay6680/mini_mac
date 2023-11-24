@@ -3,7 +3,9 @@ import React from "react";
 import "./StylesNavbar.css";
 import { useReducer } from "react";
 import {itemReducer} from "./Ordered"
-function Poper({getter}){
+import Usered from "./Usereducer";
+function Poper({getter , onADD}){
+   
     const [ArrayItems,setArray] = useState([{id:1,name:"food",price:25,location :"uk"},
                     {id:2,name:"food",price:25,location :"uk"},
                     {id:3,name:"food",price:25,location :"uk"},
@@ -24,7 +26,7 @@ function Poper({getter}){
                     <h3>Name:{items.name}</h3>
                     <h3>Price :{items.price}</h3>
                     <h3>Location :{items.location}</h3>
-                    <button type="submit" className="btn1" onClick={()=> getter(items)}>Add Item</button>
+                    <button type="submit" className="btn1" onClick={()=> getter(handleAdd(items))}>Add Item</button>
                </li>
              ))}
                 

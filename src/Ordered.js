@@ -1,16 +1,17 @@
-import { useReducer , useState , useEffect} from "react";
+import { useContext ,useReducer , useState , useEffect} from "react";
 import Reducer from "./reducer";
 import React from "react"
 import addtoCart from "./Actions";
-import itemReducer from "./reducer";
-import Usered from "./Usereducer";
+
+
 
 // creating to check weather pasing from other function can give updated state immediatly.
 
 
-function InsideCart({updateState, setState}) {
+function InsideCart({state}) {
 
-const [tone , settone] = useState(updateState);
+
+// const [tone , settone] = useState(updateState);
 
 
 
@@ -18,7 +19,7 @@ const [tone , settone] = useState(updateState);
     <>
     <div className="insideParent">
       <ul className="childlist">
-        {tone.map((insfood, index) => (
+        {state?.map((insfood, index) => (
          
           <li className="listedelements" key={index}>
            

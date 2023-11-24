@@ -1,4 +1,4 @@
-import React, { useState , useRef  } from "react";
+import React, { createContext ,useState , useRef, useEffect  } from "react";
 import Poper from "./PopupMenu.js";
 import "./App.css";
 import "./StylesNavbar.css";
@@ -7,46 +7,37 @@ import bgimg from "./LOGOSAM.png"
 import InsideCart from "./Ordered.js";
 import Usered from "./Usereducer.js";
 
+
+const myContext = createContext();
+
 function App() {
 ////////////////////////////////////////////////////////////////////////
-  const [menuVisible , menuHidden] = useState(false);
-  const visibility = () => {
-      menuHidden(!menuVisible)
-  }
+  // const [menuVisible , menuHidden] = useState(false);
+  // const visibility = () => {
+  //     menuHidden(!menuVisible)
+  // }
 ///////////////////////////////////////////////////////////////////////
 
-const [OrderedMenu , setOrderedMenu] = useState(false);
-const OrderedVisibility = () => {
-  setOrderedMenu(!OrderedMenu)
-}
+// const [OrderedMenu , setOrderedMenu] = useState(false);
+// const OrderedVisibility = () => {
+//   setOrderedMenu(!OrderedMenu)
+// }
 ///////////////////////////////////////////////////////////////////////
   // { the below one used as commener to pass data between three components
-
+  
   const[pran , setPran] = useState([]);
-  
+ 
   const PranItems = (foodinCart) =>{
-    setPran([...pran , foodinCart]);
-  console.log(pran)
- 
+    setPran((prans) => [...prans , foodinCart]);
   }
-  
- 
-    
- 
- 
-//////////////////////////////////////////////////////////////////////////////}
-// let Updater = {
-//   quantity : 0
-// }
-// const [newCart, setNewCart] = useReducer(itemReducer, Updater);
-// const increase = () => {
-//   setNewCart({type : "INC" })
-// }
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////
   const listNav = (
-    <>
+    <myContext.Provider value={{pran , setPran}}>
+    
       <div className="navbar">
         <div className="navitems">
           <ul>
@@ -56,10 +47,10 @@ const OrderedVisibility = () => {
             <div className="A1">
               <button type="submit">ABOUT</button>
             </div>
-            <div className="M1" onClick={visibility}>
+            <div className="M1" >
               <button type="submit">MENU</button>
             </div>
-            <div className="img1" onClick={OrderedVisibility}>
+            <div className="img1" >
               <div className="updater">{0}</div>
              
               <img src={img1} alt="cartimage"  ></img>
@@ -67,26 +58,27 @@ const OrderedVisibility = () => {
           </ul>
         </div>
 
-{/* //////////////////////////////////////////////////////////////////////////         */}
+{/* //////////////////////////////////////////////////////////////////////////   */}
         {/* <div className="bgimg">
           <img src={bgimg} alt="backgroundpic"></img>
         </div> */}
-        <div style={{display : menuVisible ? 'block' : "none" }}>
+        <div style={{display : 'block' }}>
           <Poper getter = {PranItems}/>
         </div>
         
-        <div  style = {{display : OrderedMenu ? "block" : "none"}} >
+        <div  style = {{display :  "block" }}>
           
-        {OrderedMenu && <Usered inside = {pran}/>}
+               <Usered />   
          
         </div>
-     
-       
+     <div>
+         
+        </div>
 {/* //////////////////////////////////////////////////////////////////////////////////  */}
       </div>
-    </>
+    </myContext.Provider>
   );
   return <>{listNav}</>;
 }
-
+export {myContext};
 export default App;
