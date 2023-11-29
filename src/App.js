@@ -6,6 +6,7 @@ import img1 from "./cart.png";
 import bgimg from "./LOGOSAM.png"
 import InsideCart from "./Ordered.js";
 import Usered from "./Usereducer.js";
+import { ADDtoCart } from "./Actions.js";
 
 
 const myContext = createContext();
@@ -63,7 +64,7 @@ function App() {
           <img src={bgimg} alt="backgroundpic"></img>
         </div> */}
         <div style={{display : 'block' }}>
-          <Poper getter = {PranItems}/>
+          <Poper ADDtoCart = {PranItems}/>
         </div>
         
         <div  style = {{display :  "block" }}>

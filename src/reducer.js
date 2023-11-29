@@ -1,14 +1,13 @@
-import react from "react";
-import { useReducer,useContext } from "react";
-import Usered from "./Usereducer";
-import { myContext } from "./App";
 
- const itemReducer = (state  , action) => {
+
+
+
+const ItemReducer = (state   , action) => {
     
     console.log(state , "reducerstate")
    switch(action.type){
     case "ADD" :
-        return   {...state , inside : action.payload}
+        return   {...state , pran : action.payload}
 
     case "DEL" :
         return {
@@ -23,4 +22,4 @@ import { myContext } from "./App";
         return state;
    }
 }
-export default itemReducer;
+export default ItemReducer;

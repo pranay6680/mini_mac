@@ -1,10 +1,9 @@
 
+import ItemReducer from "./reducer"
+import Usered from "./Usereducer"
 
-//  const addtoCart = (item)=>({
-//     type : "DEL",
-//     payload : item,
-// },{
-//     type : "ADD",
-//     payload : item,
-// })
-//  export default addtoCart;
+export const ADDtoCart = (itr) => {
+    return {type : "ADD",
+     payload : itr 
+  } 
+}

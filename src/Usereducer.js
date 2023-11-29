@@ -1,22 +1,28 @@
 import InsideCart from "./Ordered"
 import {useReducer , useContext} from "react";
-import itemReducer from "./reducer";
+
 import { myContext } from "./App";
+import ItemReducer from "./reducer"
+import Poper from "./PopupMenu";
+import { ADDtoCart } from "./Actions";
+
 
 
 function Usered(){
-    const {pran} = useContext(myContext);
-   console.log(pran , "context")
-    const [state , setState] = useReducer(itemReducer , pran);
-   console.log(itemReducer, "usereducer pran")
+    
+    const pranay  = useContext(myContext);
+   
+      
+     const [state , setState] = useReducer(ItemReducer , pranay.pran);
 
-    const handleAdd = (newItem) => {
-        setState({type : "ADD" , payload : newItem})
-    }
+   console.log(state , "usereducer stater")
+
+
+  
    return (
     <> 
       
-       <InsideCart />
+       <InsideCart stater = {state} />
     </>
    )
    

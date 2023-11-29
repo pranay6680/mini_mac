@@ -1,7 +1,8 @@
 import { useContext ,useReducer , useState , useEffect} from "react";
 import Reducer from "./reducer";
 import React from "react"
-import addtoCart from "./Actions";
+
+import { myContext } from "./App";
 
 
 
@@ -11,7 +12,6 @@ import addtoCart from "./Actions";
 function InsideCart({state}) {
 
 
-// const [tone , settone] = useState(updateState);
 
 
 
@@ -19,14 +19,14 @@ function InsideCart({state}) {
     <>
     <div className="insideParent">
       <ul className="childlist">
-        {state?.map((insfood, index) => (
+        {state.map((insfood, index) => (
          
           <li className="listedelements" key={index}>
            
             <h3>Name:{insfood.name}</h3>
             <h3>Price:{insfood.price}</h3>
             <div>
-              <button type="submit" onClick={() => addtoCart(insfood)}>
+              <button type="submit" onClick={() => (insfood)}>
                 Remove
               </button>
             </div>
